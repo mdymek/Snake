@@ -11,7 +11,9 @@ block_size = 20
 
 class Field:
     def __init__(self):
-        self.obstacles = []
+        self.obstacles = [[randint(0, 39), randint(0, 39)] for i in range(10)]
+        self.obstacles = [pos for pos in self.obstacles if (pos[0] < 15 or pos[0] > 25) or (pos[1] < 15 or pos[1] > 25)]
+
         self.poison = []
         self.apple = [randint(0, 39), randint(0, 39)]
 
@@ -21,6 +23,7 @@ class Field:
         elif position in self.obstacles:
             return 1
         elif position in self.poison:
+            self.poison.remove(position)
             return 2
         elif position == self.apple:
             self.apple = [randint(0, 39), randint(0, 39)]

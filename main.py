@@ -29,10 +29,10 @@ snake = Snake()
 field = Field()
 
 while not user_exit:
-    if randint(0, 100) < 1:
+    if randint(0, 100) < 2:
         field.add_poison()
 
-    for event in pygame.event.get():  # User did something
+    for event in pygame.event.get():
         if event.type == pygame.QUIT:
             user_exit = True
         if event.type == pygame.KEYDOWN:

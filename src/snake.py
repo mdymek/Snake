@@ -16,7 +16,7 @@ class Snake:
     def __init__(self):
         # 0 - 39
         self.body = deque([[20, 20]])
-        self.direction = pygame.K_PAUSE
+        self.direction = None
         self.hungry = True
 
     def draw(self, screen):
@@ -45,9 +45,19 @@ class Snake:
 
         return head
 
+    def opposite_direction(self):
+        opposites = {
+            pygame.K_LEFT: pygame.K_RIGHT,
+            pygame.K_RIGHT: pygame.K_LEFT,
+            pygame.K_UP: pygame.K_DOWN,
+            pygame.K_DOWN: pygame.K_UP
+        }
+        return opposites[self.direction]
+
     def move(self, direction):
         if direction in [pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN]:
-            self.direction = direction
+            if not self.direction or direction != self.opposite_direction():
+                self.direction = direction
 
         # todo delete
         if direction is pygame.K_SPACE:
