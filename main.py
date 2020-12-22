@@ -1,29 +1,22 @@
+from random import randint
 import pygame
 from src.snake import Snake
 from src.field import Field
-from random import randint
+import src.constants as constants
 
 """
  todo doc
 
 """
 
-pygame.init()
-
-BLACK = (0, 0, 0)
-GREEN = (51, 153, 51)
-
-ticks_per_min = 10
-
-size = (800, 800)
-screen = pygame.display.set_mode(size)
-
-pygame.display.set_caption("Adventures of a small Python")
-
-user_exit = False
-clock = pygame.time.Clock()
-
 score = 0
+size = (800, 800)
+user_exit = False
+
+pygame.init()
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Adventures of a small Python")
+clock = pygame.time.Clock()
 
 snake = Snake()
 field = Field()
@@ -41,13 +34,13 @@ while not user_exit:
             else:
                 snake.move(event.key)
 
-    screen.fill(GREEN)
+    screen.fill(constants.GREEN)
 
     field.draw(screen)
     new_position = snake.draw(screen)
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
-    text = font.render(f"Your score: {score}", True, BLACK)
+    text = font.render(f"Your score: {score}", True, constants.BLACK)
     screen.blit(text, [0, 0])
 
     pygame.display.flip()
@@ -71,6 +64,17 @@ while not user_exit:
         # end game
         user_exit = True
 
-    clock.tick(ticks_per_min)
+    clock.tick(constants.TICKS_PER_MIN)
+
+screen.fill(constants.GREEN)
+
+font = pygame.font.SysFont('Calibri', 25, True, False)
+text = font.render(f"Your score: {score}", True, constants.BLACK)
+screen.blit(text, [100, 150])
+
+font = pygame.font.SysFont('Calibri', 35, True, False)
+text = font.render("GAME OVER", True, constants.BLACK)
+screen.blit(text, [100, 100])
+pygame.display.flip()
 
 pygame.quit()

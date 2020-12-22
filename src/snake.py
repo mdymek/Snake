@@ -1,4 +1,5 @@
 from collections import deque
+import src.constants as constants
 
 import pygame
 
@@ -6,9 +7,6 @@ import pygame
  todo doc
 
 """
-
-BLACK = (0, 0, 0)
-snake_size = 20
 
 
 class Snake:
@@ -41,7 +39,7 @@ class Snake:
         self.hungry = True
 
         for [x, y] in self.body:
-            pygame.draw.rect(screen, BLACK, [x * 20, y * 20, snake_size, snake_size])
+            pygame.draw.rect(screen, constants.BLACK, [x * 20, y * 20, constants.BLOCK_SIZE, constants.BLOCK_SIZE])
 
         return head
 

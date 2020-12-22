@@ -1,12 +1,7 @@
 from random import randint
+import src.constants as constants
 
 import pygame
-
-BROWN = (102, 51, 00)
-LIME = (0, 255, 0)
-RED = (255, 0, 0)
-
-block_size = 20
 
 
 class Field:
@@ -31,12 +26,13 @@ class Field:
 
     def draw(self, screen):
         for [x, y] in self.obstacles:
-            pygame.draw.rect(screen, BROWN, [x * 20, y * 20, block_size, block_size])
+            pygame.draw.rect(screen, constants.BROWN, [x * 20, y * 20, constants.BLOCK_SIZE, constants.BLOCK_SIZE])
 
         for [x, y] in self.poison:
-            pygame.draw.rect(screen, LIME, [x * 20, y * 20, block_size, block_size])
+            pygame.draw.rect(screen, constants.LIME, [x * 20, y * 20, constants.BLOCK_SIZE, constants.BLOCK_SIZE])
 
-        pygame.draw.rect(screen, RED, [self.apple[0] * 20, self.apple[1] * 20, block_size, block_size])
+        pygame.draw.rect(screen, constants.RED,
+                         [self.apple[0] * 20, self.apple[1] * 20, constants.BLOCK_SIZE, constants.BLOCK_SIZE])
 
     def add_poison(self):
         if len(self.poison) < 3:

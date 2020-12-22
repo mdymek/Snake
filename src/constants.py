@@ -1,0 +1,9 @@
+BLACK = (0, 0, 0)
+BROWN = (102, 51, 00)
+GREEN = (51, 153, 51)
+LIME = (0, 255, 0)
+RED = (255, 0, 0)
+
+BLOCK_SIZE = 20
+
+TICKS_PER_MIN = 10
