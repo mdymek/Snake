@@ -1,7 +1,5 @@
 from collections import deque
-
 import src.constants as constants
-
 import pygame
 
 """

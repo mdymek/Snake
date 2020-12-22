@@ -1,7 +1,11 @@
+import pygame
 from random import randint
 import src.constants as constants
 
-import pygame
+"""
+ todo doc
+  
+"""
 
 
 class Field:

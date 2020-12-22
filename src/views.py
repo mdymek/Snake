@@ -1,5 +1,10 @@
-import src.constants as constants
 import pygame
+import src.constants as constants
+
+"""
+ todo doc
+ 
+"""
 
 pygame.init()
 
