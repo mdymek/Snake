@@ -1,4 +1,5 @@
 from collections import deque
+
 import src.constants as constants
 
 import pygame
@@ -18,8 +19,8 @@ class Snake:
         self.hungry = True
 
     def draw(self, screen):
-        x_change = 0
-        y_change = 0
+        x_change, y_change = 0, 0
+
         if self.direction == pygame.K_LEFT:
             x_change = -1
         elif self.direction == pygame.K_RIGHT:
@@ -56,10 +57,6 @@ class Snake:
         if direction in [pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN]:
             if not self.direction or direction != self.opposite_direction():
                 self.direction = direction
-
-        # todo delete
-        if direction is pygame.K_SPACE:
-            self.eat()
 
     def eat(self):
         self.hungry = False

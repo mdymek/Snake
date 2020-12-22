@@ -25,6 +25,9 @@ class Field:
             return 3
 
     def draw(self, screen):
+        if randint(0, 100) < 2:
+            self.add_poison()
+
         for [x, y] in self.obstacles:
             pygame.draw.rect(screen, constants.BROWN, [x * 20, y * 20, constants.BLOCK_SIZE, constants.BLOCK_SIZE])
 
