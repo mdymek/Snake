@@ -67,6 +67,7 @@ class Snake:
     def eat(self):
         """ When snake eats, its not hungry and elongates by one block when moving. """
         self.hungry = False
+        consts.TICKS_PER_MIN += 2
 
     def poison(self):
         """ Snake shortens by one block when he eats poison. """
